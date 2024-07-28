@@ -11,3 +11,5 @@ npm-debug.log*
 
 # Environment variables
 .env
+# Exclude db.js
+db.js
