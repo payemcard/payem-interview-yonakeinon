@@ -1,18 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const { createRequest, getRequests, getRequestByIdHandler, approveRequest, declineRequest } = require('../controllers/requestController');
 const validateRequest = require('../middlewares/validateRequest');
-const {
-    getRequests,
-    getRequestByIdHandler, 
-    createRequest,
-    approveRequest,
-    declineRequest
-} = require('../controllers/requestController');
 
 router.get('/requests', getRequests);
-router.get('/request/:id', getRequestByIdHandler); 
-router.post('/request', validateRequest, createRequest);
-router.post('/request/:id/approve', approveRequest);
-router.post('/request/:id/decline', declineRequest);
+router.get('/requests/:id', getRequestByIdHandler);
+router.post('/requests', validateRequest, createRequest);
+router.post('/requests/:id/approve', approveRequest);
+router.post('/requests/:id/decline', declineRequest);
 
 module.exports = router;

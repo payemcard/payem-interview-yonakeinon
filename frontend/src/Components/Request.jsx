@@ -24,6 +24,37 @@ const Request = () => {
     fetchRequest();
   }, [id]);
 
+  const handleApprove = async () => {
+    console.log('Approving request:', id);
+    try {
+      const response = await axios.post(`${HOST_WITH_PORT}/api/requests/${id}/approve`);
+      console.log('Approve response:', response.data);
+      setRequest(response.data);
+      setResponseMessage({ type: 'success', text: 'Request Approved Successfully!' });
+      setTimeout(() => setResponseMessage(null), 3000);
+    } catch (error) {
+      console.error('Error approving request:', error);
+      setResponseMessage({ type: 'error', text: 'Error Approving Request' });
+      setTimeout(() => setResponseMessage(null), 3000);
+    }
+  };
+  
+  const handleDecline = async () => {
+    console.log('Declining request:', id);
+    try {
+      const response = await axios.post(`${HOST_WITH_PORT}/api/requests/${id}/decline`);
+      console.log('Decline response:', response.data);
+      setRequest(response.data);
+      setResponseMessage({ type: 'success', text: 'Request Declined Successfully!' });
+      setTimeout(() => setResponseMessage(null), 3000);
+    } catch (error) {
+      console.error('Error declining request:', error);
+      setResponseMessage({ type: 'error', text: 'Error Declining Request' });
+      setTimeout(() => setResponseMessage(null), 3000);
+    }
+  };
+  
+
   if (!request) {
     return <div>Loading...</div>;
   }
@@ -62,11 +93,11 @@ const Request = () => {
         </div>
       </form>
       <div className="button-group">
-        <button className="approve-button">Approve</button>
-        <button className="decline-button">Decline</button>
+        <button className="approve-button" onClick={handleApprove}>Approve</button>
+        <button className="decline-button" onClick={handleDecline}>Decline</button>
       </div>
       {responseMessage && (
-        <div className={`snackbar ${responseMessage.type}`}>
+        <div className={`snackbar ${responseMessage.type} show`}>
           {responseMessage.text}
         </div>
       )}

@@ -10,7 +10,7 @@ const CreateRequestForm = () => {
   const [currency, setCurrency] = useState('USD');
   const [employeeName, setEmployeeName] = useState('');
   const [status, setStatus] = useState('Pending');
-  const [responseMessage, setResponseMessage] = useState(null);  // State to handle response message
+  const [responseMessage, setResponseMessage] = useState(null);
 
   const handleInputChange = (setter) => (e) => {
     setter(e.target.value);
@@ -32,7 +32,6 @@ const CreateRequestForm = () => {
       const response = await axios.post(`${HOST_WITH_PORT}/api/requests`, newRequest);
       setResponseMessage({ type: 'success', text: 'Request Created Successfully!' });
       console.log('Request Created:', response.data);
-      // Clear form fields after successful submission
       setName('');
       setDescription('');
       setAmount('');
@@ -40,7 +39,8 @@ const CreateRequestForm = () => {
       setEmployeeName('');
       setStatus('Pending');
     } catch (error) {
-      setResponseMessage({ type: 'error', text: 'Error Creating Request' });
+      const errorMessage = error.response?.data?.error || 'Error Creating Request';
+      setResponseMessage({ type: 'error', text: errorMessage });
       console.error('Error creating request', error);
     }
   };

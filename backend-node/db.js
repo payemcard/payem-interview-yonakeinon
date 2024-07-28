@@ -7,9 +7,9 @@ let db = [
         "amount": 100,
         "currency": "USD",
         "employee_name": "John Doe",
-        "status": "Pending",
+        "status": "Approved",
         "created_at": "2024-07-19T08:30:00.000Z",
-        "updated_at": null,
+        "updated_at": "2024-07-28T13:03:13.199Z",
         "approved_amount": 90
     },
     {
@@ -21,7 +21,7 @@ let db = [
         "employee_name": "Jane Smith",
         "status": "Approved",
         "created_at": "2024-07-18T10:15:00.000Z",
-        "updated_at": "2024-07-20T14:20:00.000Z",
+        "updated_at": "2024-07-28T13:13:22.439Z",
         "approved_amount": 140
     },
     {
@@ -31,9 +31,9 @@ let db = [
         "amount": 80,
         "currency": "USD",
         "employee_name": "Alice Johnson",
-        "status": "Pending",
+        "status": "Approved",
         "created_at": "2024-07-17T12:45:00.000Z",
-        "updated_at": null,
+        "updated_at": "2024-07-28T14:07:56.319Z",
         "approved_amount": 75
     },
     {
@@ -55,9 +55,9 @@ let db = [
         "amount": 200,
         "currency": "USD",
         "employee_name": "Eve Green",
-        "status": "Pending",
+        "status": "Declined",
         "created_at": "2024-07-15T14:20:00.000Z",
-        "updated_at": null,
+        "updated_at": "2024-07-28T13:36:48.522Z",
         "approved_amount": 180
     },
     {
@@ -171,9 +171,74 @@ let db = [
         "updated_at": null,
         "approved_amount": 0,
         "type": "Purchase Request"
+    },
+    {
+        "id": 15,
+        "name": "Purchase Request 34",
+        "description": "blaaaaa",
+        "amount": 300,
+        "currency": "USD",
+        "employee_name": "test",
+        "status": "Pending",
+        "created_at": "2024-07-28T11:54:06.392Z",
+        "updated_at": null,
+        "approved_amount": 0,
+        "type": "Purchase Request"
+    },
+    {
+        "id": 16,
+        "name": "Purchase Request 67",
+        "description": "blaa",
+        "amount": 34,
+        "currency": "USD",
+        "employee_name": "yona test",
+        "status": "Pending",
+        "created_at": "2024-07-28T12:05:28.280Z",
+        "updated_at": null,
+        "approved_amount": 0,
+        "type": "Purchase Request"
+    },
+    {
+        "id": 17,
+        "name": "Purchase Request 88",
+        "description": "hoooo",
+        "amount": 11,
+        "currency": "USD",
+        "employee_name": "test 5",
+        "status": "Pending",
+        "created_at": "2024-07-28T12:55:24.867Z",
+        "updated_at": null,
+        "approved_amount": 0,
+        "type": "Purchase Request"
+    },
+    {
+        "id": 18,
+        "name": "Purchase Request 66",
+        "description": "hiiii",
+        "amount": 42,
+        "currency": "USD",
+        "employee_name": "test",
+        "status": "Pending",
+        "created_at": "2024-07-28T13:43:30.335Z",
+        "updated_at": null,
+        "approved_amount": 0,
+        "type": "Purchase Request"
+    },
+    {
+        "id": 19,
+        "name": "yona",
+        "description": "laaaaaa",
+        "amount": 2,
+        "currency": "USD",
+        "employee_name": "23",
+        "status": "Pending",
+        "created_at": "2024-07-28T14:06:20.927Z",
+        "updated_at": null,
+        "approved_amount": 0,
+        "type": "Other"
     }
 ];
 
-let nextId = 15;
+let nextId = 20;
 
 module.exports = { db, nextId };

@@ -35,6 +35,20 @@ const ShowRequests = () => {
         });
     };
 
+    const onApplyFilters = async () => {
+        console.log('Applying Filters:', filters);
+        try {
+            const response = await axios.get(`${HOST_WITH_PORT}/api/requests`, { params: filters });
+            setRequests(response.data);
+            setResponseMessage({ type: 'success', text: 'Filters Applied Successfully!' });
+            setTimeout(() => setResponseMessage(null), 3000);
+        } catch (error) {
+            setResponseMessage({ type: 'error', text: 'Error Applying Filters' });
+            setTimeout(() => setResponseMessage(null), 3000);
+            console.error('Error applying filters', error);
+        }
+    };
+
     const handleRowClick = (id) => {
         navigate(`/requests/${id}`);
     };
@@ -42,7 +56,7 @@ const ShowRequests = () => {
     return (
         <div className="requests-container">
             <h1>Show Requests</h1>
-            <Filters filters={filters} onFilterChange={handleFilterChange} onApplyFilters={() => { }} />
+            <Filters filters={filters} onFilterChange={handleFilterChange} onApplyFilters={onApplyFilters} />
             <button onClick={fetchRequests} className="fetch-button">Fetch Requests</button>
             <table className="requests-table">
                 <thead>
