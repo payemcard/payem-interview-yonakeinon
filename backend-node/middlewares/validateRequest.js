@@ -1,34 +1,25 @@
+const { ValidationError } = require('../errors/errors');
+
 const validateRequest = (req, res, next) => {
-    const { name, description, amount, currency, employee_name } = req.body;
-  
-    if (!name || !description || !amount || !currency || !employee_name) {
-      console.log('Validation Error: Missing required fields');
-      return res.status(400).json({ error: 'Missing required fields' });
-    }
-  
-    if (typeof name !== 'string') {
-      console.log('Validation Error: Name must be a string');
-      return res.status(400).json({ error: 'Name must be a string' });
-    }
-    if (typeof description !== 'string') {
-      console.log('Validation Error: Description must be a string');
-      return res.status(400).json({ error: 'Description must be a string' });
-    }
-    if (typeof amount !== 'number' || amount <= 0) {
-      console.log('Validation Error: Amount must be a positive number');
-      return res.status(400).json({ error: 'Amount must be a positive number' });
-    }
-    if (typeof currency !== 'string') {
-      console.log('Validation Error: Currency must be a string');
-      return res.status(400).json({ error: 'Currency must be a string' });
-    }
-    if (typeof employee_name !== 'string') {
-      console.log('Validation Error: Employee name must be a string');
-      return res.status(400).json({ error: 'Employee name must be a string' });
-    }
-  
-    next();
-  };
-  
-  module.exports = validateRequest;
-  
+  const { name, description, amount, currency, employee_name } = req.body;
+
+  if (!name || typeof name !== 'string' || name.trim() === '' || !isNaN(name)) {
+    throw new ValidationError('Name must be a non-empty string');
+  }
+  if (!description || typeof description !== 'string' || description.trim() === '') {
+    throw new ValidationError('Description must be a non-empty string');
+  }
+  if (typeof amount !== 'number' || amount <= 0 || isNaN(amount)) {
+    throw new ValidationError('Amount must be a positive number');
+  }
+  if (!currency || typeof currency !== 'string' || currency.trim() === '') {
+    throw new ValidationError('Currency must be a non-empty string');
+  }
+  if (!employee_name || typeof employee_name !== 'string' || employee_name.trim() === '') {
+    throw new ValidationError('Employee name must be a non-empty string');
+  }
+
+  next();
+};
+
+module.exports = validateRequest;

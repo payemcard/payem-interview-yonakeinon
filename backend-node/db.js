@@ -236,9 +236,126 @@ let db = [
         "updated_at": null,
         "approved_amount": 0,
         "type": "Other"
+    },
+    {
+        "id": 20,
+        "name": "0",
+        "description": "yona",
+        "amount": 9,
+        "currency": "USD",
+        "employee_name": "test2",
+        "status": "Declined",
+        "created_at": "2024-07-29T09:31:58.777Z",
+        "updated_at": "2024-07-29T09:34:40.453Z",
+        "approved_amount": 0,
+        "type": "Other"
+    },
+    {
+        "id": 21,
+        "name": "ttt",
+        "description": "test",
+        "amount": 1,
+        "currency": "USD",
+        "employee_name": "tt",
+        "status": "Pending",
+        "created_at": "2024-07-29T09:33:36.185Z",
+        "updated_at": null,
+        "approved_amount": 0,
+        "type": "Other"
+    },
+    {
+        "id": 22,
+        "name": "33",
+        "description": "rr",
+        "amount": 2,
+        "currency": "USD",
+        "employee_name": "ee",
+        "status": "Pending",
+        "created_at": "2024-07-29T09:33:50.432Z",
+        "updated_at": null,
+        "approved_amount": 0,
+        "type": "Other"
+    },
+    {
+        "id": 23,
+        "name": "6",
+        "description": "test",
+        "amount": 2,
+        "currency": "USD",
+        "employee_name": "test",
+        "status": "Pending",
+        "created_at": "2024-07-29T09:38:59.668Z",
+        "updated_at": null,
+        "approved_amount": 0,
+        "type": "Other"
+    },
+    {
+        "id": 24,
+        "name": "5",
+        "description": "gggg",
+        "amount": 4,
+        "currency": "USD",
+        "employee_name": "weee",
+        "status": "Pending",
+        "created_at": "2024-07-29T09:44:37.411Z",
+        "updated_at": null,
+        "approved_amount": 0,
+        "type": "Other"
+    },
+    {
+        "id": 25,
+        "name": "4",
+        "description": "test",
+        "amount": 2,
+        "currency": "USD",
+        "employee_name": "test",
+        "status": "Pending",
+        "created_at": "2024-07-29T09:50:44.836Z",
+        "updated_at": null,
+        "approved_amount": 0,
+        "type": "Other"
+    },
+    {
+        "id": 26,
+        "name": "45",
+        "description": "3",
+        "amount": 3,
+        "currency": "USD",
+        "employee_name": "we",
+        "status": "Pending",
+        "created_at": "2024-07-29T09:51:01.970Z",
+        "updated_at": null,
+        "approved_amount": 0,
+        "type": "Other"
+    },
+    {
+        "id": 27,
+        "name": "test",
+        "description": "test",
+        "amount": 3,
+        "currency": "USD",
+        "employee_name": "test",
+        "status": "Pending",
+        "created_at": "2024-07-29T10:13:47.453Z",
+        "updated_at": null,
+        "approved_amount": 0,
+        "type": "Other"
+    },
+    {
+        "id": 28,
+        "name": "test",
+        "description": "00",
+        "amount": 6,
+        "currency": "USD",
+        "employee_name": "!!",
+        "status": "Pending",
+        "created_at": "2024-07-29T10:20:24.513Z",
+        "updated_at": null,
+        "approved_amount": 0,
+        "type": "Other"
     }
 ];
 
-let nextId = 20;
+let nextId = 29;
 
 module.exports = { db, nextId };

@@ -16,8 +16,33 @@ const CreateRequestForm = () => {
     setter(e.target.value);
   };
 
+  const validateForm = () => {
+    if (!name || typeof name !== 'string' || name.trim() === '' || !isNaN(name)) {
+      return 'Name must be a non-empty string';
+    }
+    if (!description || typeof description !== 'string' || description.trim() === '') {
+      return 'Description must be a non-empty string';
+    }
+    if (!amount || typeof parseFloat(amount) !== 'number' || parseFloat(amount) <= 0 || isNaN(amount)) {
+      return 'Amount must be a positive number';
+    }
+    if (!currency || typeof currency !== 'string' || currency.trim() === '') {
+      return 'Currency must be a non-empty string';
+    }
+    if (!employeeName || typeof employeeName !== 'string' || employeeName.trim() === '') {
+      return 'Employee name must be a non-empty string';
+    }
+    return null;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const errorMessage = validateForm();
+    if (errorMessage) {
+      setResponseMessage({ type: 'error', text: errorMessage });
+      return;
+    }
 
     const newRequest = {
       name,
